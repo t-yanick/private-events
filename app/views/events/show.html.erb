@@ -5,4 +5,26 @@
   <%= link_to @event.creator.name, @event.creator %>
 </p>
 
+<h1>Attendees</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event.attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.name %></td>
+        <td><%= attendee.username %></td>
+        <td><%= link_to 'Show', attendee %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= link_to 'Back', events_path %>
