@@ -21,14 +21,12 @@
   </thead>
 
   <tbody>
-    <% @user.attended_events.each do |event| %>
-      <% if event.date < Date.today %>
+    <% @user.attended_events.past.each do |event| %>
       <tr>
         <td><%= event.description %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -45,14 +43,12 @@
   </thead>
 
   <tbody>
-    <% @user.attended_events.each do |event| %>
-      <% if event.date >= Date.today %>
+    <% @user.attended_events.upcoming.each do |event| %>
       <tr>
         <td><%= event.description %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
