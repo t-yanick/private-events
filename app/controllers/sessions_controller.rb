@@ -4,11 +4,17 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_username(params[:username])
-    session[:user_id] = user.id
-    redirect_to user, notice: "Welcome, #{user.username}"
-
+    if user
+      session[:user_id] = user.id
+      redirect_to user, notice: "Welcome, #{user.username}"
+    else
+      flash.now[:alert] = "Enter a valid Username"
+      render "new"
+    end
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to root_url, notice: "Logged out!"
   end
 end

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Past Events</h1>
 
 <table>
   <thead>
@@ -14,12 +14,40 @@
 
   <tbody>
     <% @events.each do |event| %>
+      <% if event.date < Date.today %>
       <tr>
         <td><%= event.creator.username %></td>
         <td><%= event.description %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
       </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Upcoming Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <% if event.date >= Date.today %>
+      <tr>
+        <td><%= event.creator.username %></td>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
