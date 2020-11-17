@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html do
           redirect_to sessions_path(username: @user.username), method: :post,\
-                                                               notice: 'User was successfully created. you need to log in'
+          notice: 'User was successfully created. you need to log in'
         end
       else
         format.html { render :new }
