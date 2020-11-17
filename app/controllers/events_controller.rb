@@ -5,8 +5,7 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @event = current_user.created_events.build

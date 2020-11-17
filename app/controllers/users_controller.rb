@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: "User was successfully created. you need to log in" }
+        format.html { redirect_to root_path, notice: 'User was successfully created. you need to log in' }
       else
         format.html { render :new }
       end
