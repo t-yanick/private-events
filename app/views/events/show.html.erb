@@ -1,10 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Creator:</strong>
   <%= link_to @event.creator.name, @event.creator %>
 </p>
-<%= link_to 'Attend', attendances_path (event_id: @event.id)%>
+<% if @event.attendees.include?(current_user)%>
+  <%= link_to 'Not Attending', attendance_path(@event.attendances.find_by_attendee_id(current_user.id)), method: :delete%>
+<%else%>
+  <%= link_to 'Attend', attendances_path(event_id:@event.id), method: :post%>
+<%end%>
 <h1>Attendees</h1>
 <table>
   <thead>

@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    session[:user_id] = @user.id
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: "User was successfully created. you need to log in" }
       else
         format.html { render :new }
       end
