@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 class AttendanceTest < ActiveSupport::TestCase
   # test "the truth" do

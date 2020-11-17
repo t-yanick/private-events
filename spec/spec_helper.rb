@@ -15,7 +15,4 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
   # config.profile_examples = 10
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
 end

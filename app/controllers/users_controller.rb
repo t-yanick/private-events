@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'User was successfully created. you need to log in' }
+        format.html { redirect_to login_path(username: @user.username), notice: 'User was successfully created. you need to log in' }
       else
         format.html { render :new }
       end
