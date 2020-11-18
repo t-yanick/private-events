@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show]
+  before_action :authenticate, only: [:create, :new]
 
   def index
     @events = Event.all
@@ -31,5 +32,11 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:description, :date)
+  end
+
+  def authenticate
+    if session[:user_id].nil?
+      redirect_to login_path, notice: 'You have to login'
+    end
   end
 end
