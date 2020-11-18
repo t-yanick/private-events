@@ -3,7 +3,6 @@ require 'application_system_test_case'
 class EventsTest < ApplicationSystemTestCase
   setup do
     @event = events(:one)
-    @user = users(:two)
   end
 
   test 'visiting the index' do
