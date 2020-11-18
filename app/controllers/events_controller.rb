@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show]
-  before_action :authenticate, only: [:create, :new]
+  before_action :authenticate, only: %i[create new]
 
   def index
     @events = Event.all
@@ -35,8 +35,6 @@ class EventsController < ApplicationController
   end
 
   def authenticate
-    if session[:user_id].nil?
-      redirect_to login_path, notice: 'You have to login'
-    end
+    redirect_to login_path, notice: 'You have to login' if session[:user_id].nil?
   end
 end

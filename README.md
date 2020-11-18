@@ -32,7 +32,7 @@ Follow the steps below to get a local copy running:
 - Open a browser, copy and paste `http://localhost:3000`
 
 ### Run Tests
-- Type `bundle exec rspec test`
+- Type `bundle exec rspec`
 
 ## Authors
 

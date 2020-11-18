@@ -1,5 +1,7 @@
-example_id                                         | status  | run_time        |
--------------------------------------------------- | ------- | --------------- |
-./spec/controllers/event_controller_spec.rb[1:1:1] | passed  | 0.01813 seconds |
-./spec/models/attendance_spec.rb[1:1]              | pending | 0.00001 seconds |
-./test/models/user_spec.rb[1:1:1]                  | passed  | 0.07388 seconds |
+example_id                            | status  | run_time        |
+------------------------------------- | ------- | --------------- |
+./spec/models/attendance_spec.rb[1:1] | pending | 0.00002 seconds |
+./spec/models/event_spec.rb[1:1]      | passed  | 0.00719 seconds |
+./spec/models/event_spec.rb[1:2]      | passed  | 0.02367 seconds |
+./spec/models/user_spec.rb[1:1]       | passed  | 0.02502 seconds |
+./spec/models/user_spec.rb[1:2]       | passed  | 0.00991 seconds |
