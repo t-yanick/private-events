@@ -1,0 +1,53 @@
+<h1>Past Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.past.each do |event| %>
+      <tr>
+        <td><%= event.creator.username %></td>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Upcoming Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.upcoming.each do |event| %>
+      <tr>
+        <td><%= event.creator.username %></td>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user %>
+<%= link_to 'New Event', new_event_path %>
+<%end%>
